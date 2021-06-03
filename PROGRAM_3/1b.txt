@@ -1,0 +1,3 @@
+for the same test input the model with gaussian naive bayes and multinomial naive bayes gives the output "2".
+where the bernoulli naive bayes gives the output as "0".This is because bernoulli naive bayes is mainly a
+binary typed working. it often classify into presence/absence,yes/no etc.
