@@ -1,0 +1,15 @@
+from sklearn.datasets import load_iris
+from sklearn.tree import DecisionTreeClassifier
+from sklearn import tree
+import graphviz
+iris = load_iris()
+x= iris.data
+y= iris.target
+ML = DecisionTreeClassifier()
+ML =ML.fit(x,y)
+fn=iris.feature_names
+cn=iris.target_names
+dot_data=tree.export_graphviz (ML,feature_names=fn, class_names=cn, filled=True, rounded= True, special_characters=True)                                                         
+graph=graphviz.Source(dot_data)
+graph.render("iris_Graph")
+graph

@@ -1,0 +1,15 @@
+from sklearn.datasets import load_wine
+from sklearn.tree import DecisionTreeClassifier
+from sklearn import tree
+import graphviz
+wine = load_wine()
+x= wine.data
+y= wine.target
+ML = DecisionTreeClassifier()
+ML =ML.fit(x,y)
+fn=wine.feature_names
+cn=wine.target_names
+dot_data=tree.export_graphviz (ML,feature_names=f_n, class_names=c_n, filled=True)                                                   
+graph=graphviz.Source(dot_data)
+graph.render("Wine_Graph")
+graph

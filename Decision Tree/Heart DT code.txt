@@ -1,0 +1,15 @@
+from sklearn.tree import DecisionTreeClassifier
+import pandas as pd
+import graphviz
+from sklearn import tree
+heart=pd.read_csv("/content/heart.csv")
+x=heart[['age','sex','cp','trtbps','chol','fbs','restecg','thalachh','exng','oldpeak','slp','caa','thall']]
+y=heart['output']
+ML=DecisionTreeClassifier()
+ML=ML.fit(x,y)
+data=tree.export_graphviz(ML,feature_names=['age','sex','cp','trtbps','chol','fbs','restecg','thalachh','exng',
+                                            'oldpeak','slp','caa','thall'],class_names=['0','1'],
+                          filled=True)
+graph=graphviz.Source(data)
+graph
+graph.render("Heart_DT_Graph")
